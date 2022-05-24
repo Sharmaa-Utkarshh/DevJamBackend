@@ -36,18 +36,10 @@ contract BuyMeACoffee {
         owner = payable(msg.sender);
     }
 
-    /**
-     * @dev fetches all stored memos
-     */
     function getMemos() public view returns (Memo[] memory) {
         return memos;
     }
-
-    /**
-     * @dev buy a coffee for owner (sends an ETH tip and leaves a memo)
-     * @param _name name of the coffee purchaser
-     * @param _message a nice message from the purchaser
-     */
+    
     function buyCoffee(string memory _name, string memory _message) public payable {
         // Must accept more than 0 ETH for a coffee.
         require(msg.value > 0, "can't buy coffee for free!");
